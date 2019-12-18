@@ -50,10 +50,10 @@ cp -f ${INSTALL_DIR}/files/zlux/config/zluxserver.json zlux-app-server/defaults/
 cp -f ${INSTALL_DIR}/files/zlux/config/plugins/* zlux-app-server/defaults/plugins
 
 echo "Unpax zssServer " >> $LOG_FILE
-cd zlux-app-server/bin
-pax -r -px -f $INSTALL_DIR/files/zss.pax zssServer
-extattr +p zssServer
-cd ../..
+cd zlux-app-server
+pax -r -px -f $INSTALL_DIR/files/zss.pax bin
+extattr +p bin/zssServer
+cd ..
 
 chmod -R a-w tn3270-ng2/ vt-ng2/ zlux-app-manager/ zlux-app-server/ zlux-ng2/ zlux-server-framework/ zlux-shared/ 2>/dev/null
 cp zlux-app-server/bin/start.sh zlux-app-server/bin/configure.sh ${APP_SERVER_COMPONENT_DIR}/bin
